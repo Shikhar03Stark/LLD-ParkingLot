@@ -62,6 +62,7 @@ public class CarParkingLot implements ParkingLotManager, ParkingLotStatus {
         return this.parkingLot.getSlots().stream()
                 .filter(Slot::hasParkedCar)
                 .map(Slot::getParkedCar)
+                .filter(parkedCar -> parkedCar.colour().equals(colour))
                 .collect(Collectors.toList());
     }
 
